@@ -13,16 +13,8 @@ header.header-10
           li
             a(href='/eth.html') 私人礦池
           li
-            a(href='/ipfs-miner.html') IPFS 存儲與挖礦方案
+            a(href='/flowchain-ipfs.html') Flowchain+IPFS 方案
+          li
+            a(href='/crypto-night.html') Crypto Night 社群小聚            
           li
             a(href='/about.html') 關於我們
-          if user.username
-            li: a(href='/account', id='user', data-username='#{user.username}')
-              span.fa.fa-user Hi, #{user.username}
-            li: a(href='/logout')
-              span.fa.fa-user 登出
-          else
-            li: a(href='/login')
-              span.fa.fa-user &nbsp;登入
-            li: a(href='/signup')
-              span.fa.fa-user &nbsp;加入會員
