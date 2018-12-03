@@ -1,0 +1,19 @@
+{
+    "success": true,
+    "errors": [],
+    "errfor": {},
+    "task": {
+        "idea": "52bc09429025499d1600001e",
+        "_id": "52bc0be216cff1a616000033",
+        "__v": 0,
+        "userCreated": {
+            "id": "52b7c4eaf17edb6c06000015",
+            "time": "2013-12-26T10:58:42.577Z",
+            "name": "jollen"
+        },
+        "date": "2013-12-26T10:58:42.577Z",
+        "description": "",
+        "objective": "percentage-on-new-features",
+        "code": "101"
+    }
+}

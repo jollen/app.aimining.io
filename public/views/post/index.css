@@ -1,0 +1,60 @@
+.cover-story-2 {
+	background-image: url(http://cdn.mokoversity.com/images/cover.jpg);
+	overflow-y: hidden ! important;
+	overflow-x: hidden ! important;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: left;
+
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.cover-story {
+	background-image: url(http://cdn.mokoversity.com/images/cover/coffee.jpg?20140120);
+	overflow-y: hidden ! important;
+	overflow-x: hidden ! important;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: left;
+
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.post-container {
+	padding-top: 120px;
+	padding-bottom: 180px;
+}
+
+.post-container h2 {
+	color: #424242;
+}
+
+.post-container a:link {
+	color: #424242;
+	text-decoration: none;
+}
+
+.post-container a:hover {
+	color: #6b6b6c;
+	text-decoration: none;
+}
+
+.post-container a:visited {
+	color: #424242;
+	text-decoration: none;
+}
+
+.post-container active {
+	color: #424242;
+	text-decoration: none;
+}
+
+.post-container .post-author {
+	color: #c0c0c0;
+}
+
+.post-container .post-date {
+	color: #c0c0c0;
+}

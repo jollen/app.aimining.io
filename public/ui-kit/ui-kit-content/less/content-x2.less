@@ -1,0 +1,123 @@
+/**
+ * Extensions of Startup Framework by Moko365 Inc.
+ */
+
+ // derived from content-12
+/**
+ * Content x2 stylesheet  
+ * */
+.content-x2 {
+    position:relative;
+    .wide {
+        .box-sizing(border-box);
+        display: block;
+    }
+    .btn-wide-carrot {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: center;
+        .font(40px);
+        font-family: @font-family-demo;
+        .a-color(#fff, #fff);
+        background: @carrot;
+        font-weight: 300;
+        .transition(~'0.25s color, 0.25s background-color');
+        &:hover, &:active {
+            background: @pumpkin;
+        }
+        @media (max-width: 767px) {
+            font-size: 30px;
+        }
+        .desc {
+            .font(28px);
+            .a-color(#fff, #fff);
+        }
+        .control-btn {
+            margin-top: 25px;
+            width: 53px;
+            height: 53px;
+            .line-height(53px);
+            border-radius: 50%;
+            text-align: center;
+            .font(19px);
+            .a-color(@carrot, @pumpkin);
+            background: #fff;
+            .opacity(75);
+            &:hover, &:focus, &:active, &.active {
+                .opacity(100);
+            }
+        }
+    }
+    .btn-wide-clouds {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: center;
+        .font(40px);
+        font-family: @font-family-demo;
+        .a-color(#222, #eee);
+        background: @clouds;
+        font-weight: 300;
+        .transition(~'0.25s color, 0.25s background-color');
+        &:hover, &:active {
+            background: @silver;
+        }
+        @media (max-width: 767px) {
+            font-size: 30px;
+        }
+        .desc {
+            .font(28px);
+            .a-color(#222, #eee);
+        }
+        .control-btn {
+            margin-top: 25px;
+            width: 53px;
+            height: 53px;
+            .line-height(53px);
+            border-radius: 50%;
+            text-align: center;
+            .font(19px);
+            .a-color(@clouds, @silver);
+            background: #fff;
+            .opacity(75);
+            &:hover, &:focus, &:active, &.active {
+                .opacity(100);
+            }
+        }
+    }
+    .btn-wide-concrete {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: center;
+        .font(40px);
+        font-family: @font-family-demo;
+        .a-color(#fff, #fff);
+        background: @concrete;
+        font-weight: 300;
+        .transition(~'0.25s color, 0.25s background-color');
+        &:hover, &:active {
+            background: @asbestos;
+        }
+        @media (max-width: 767px) {
+            font-size: 30px;
+        }
+        .desc {
+            .font(28px);
+            .a-color(#fff, #fff);
+        }
+        .control-btn {
+            margin-top: 25px;
+            width: 53px;
+            height: 53px;
+            .line-height(53px);
+            border-radius: 50%;
+            text-align: center;
+            .font(19px);
+            .a-color(@concrete, @asbestos);
+            background: #fff;
+            .opacity(75);
+            &:hover, &:focus, &:active, &.active {
+                .opacity(100);
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+extends ../layout/default
+
+block head
+  title 發表文章 | #{projectTitle}
+
+block neck
+
+block feet
+  script(src='/views/post/one.js#{cacheBreaker}')
+
+block heading
+  include ../layout/offcanvas
+  section.header-10-sub.v-center
+    .background
+
+block body
+  section.blog-3
+    #post(data-post-id!='#{id}')
+
+  section.content-x2
+    .row
+      .col-md-12
+        a.wide.btn-wide-concrete(href='/post/create')
+          img(src='#{cdnServer}/images/logo.png')
+          br
+          br
+          span 發現台灣計畫
+          br
+          span.desc 上傳並分享照片
+          br
+          span.control-btn.fui-photo
+
+  script(type='text/template', id='tmpl-post')
+    .container
+      .title
+          h3 <%= subject %>
+          .submitted 照片提供 / 作者:
+          .submitted 發表日期: 
+      .row
+        .col-sm-6.col-sm-offset-3
+          p
+            | <%= content %>

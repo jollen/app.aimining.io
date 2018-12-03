@@ -1,0 +1,94 @@
+<!--
+Copyright (C) 2013 Google Inc. All Rights Reserved. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at 
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software 
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and 
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html ng-app data-cast-api-enabled="true">
+<head>
+  <title>Cast API Demo</title>
+  <link rel="stylesheet" type="text/css" href="demo_app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+  <script src="demo_app.js"></script>
+</head>
+<body ng-controller="DemoAppCtrl">
+  <div ng-switch on="castApiDetected" >
+    <span ng-switch-default><b>No Cast API is detected.</b></span>
+    
+    <div ng-switch-when="true">
+      <div>
+        <h3 style="display: inline-block">Select activity type</h3>
+        <select ng-model="model.activitySelection" ng-options="activityType for activityType in activityTypes"></select>
+      </div>
+      
+      <div ng-switch on="model.activitySelection" >
+        <div ng-switch-when="YouTube">
+          <h3 style="display: inline-block">Enter YouTube video ID</h3>
+          <input type="text" ng-model="model.ytVideoId" size="50" placeholder="Enter a YouTube video ID">
+        </div>
+        <div ng-switch-when="HTML5 Video Playback">
+          <form ng-submit="setVideoSrc()">
+            <h3 style="display: inline-block">Enter HTML5 video URL</h3>
+            <input type="text" ng-model="model.videoUrl" size="50" placeholder="Enter a video URL">
+            <input type="submit" id="submit" value="Play this video" />
+          </form>
+          <video id="video" src="" autoplay="autoplay"></video>
+        </div>
+        <div ng-switch-when="Receiver SDK Demo">
+          <form ng-submit="setVideoSrc()">
+            <h3 style="display: inline-block">Enter HTML5 video URL</h3>
+            <input type="text" ng-model="model.videoUrl" size="50" placeholder="Enter a video URL">
+            <input type="submit" id="submit" value="Play this video" />
+          </form>
+          <video id="video" src="" autoplay="autoplay"></video>
+        </div>
+        <div ng-switch-when="Tab Mirroring">
+          <iframe width="1120" height="630" src="https://www.youtube.com/embed/wArmHSPIvlQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div ng-switch-default>
+          <h3>Please select an activity.</h3>
+        </div>
+      </div>
+      
+      <div id="receiverPicker">
+        <h3>Select a device to launch this activity:</h3>
+        <div ng-repeat="receiver in receiverList" ng-click="launchActivityAt(receiver)" class="device">
+          {{receiver.name}}
+        </div>
+      </div>
+
+      <div ng-show="showActivityControls">
+        <h3>Remote controls</h3>
+        <button ng-click="stopActivity()">Stop</button>
+        <button ng-click="playMedia()" ng-show="hasPause">Play</button>
+        <button ng-click="pauseMedia()" ng-show="hasPause">Pause</button>
+        <button ng-click="muteMedia()">Mute</button>
+        <button ng-click="unmuteMedia()">Unmute</button>
+        <input ng-model="model.mediaVolume" min="0.0" max="1.0" type="number" size="3">Volume</input>
+        <div>
+          <button ng-click="getActivityStatus()">Get Activity Status</button>
+          <span>{{activityStatus}}</span>
+        </div>
+        <div>
+          <button ng-click="getMediaStatus()">Get Media Status</button>
+          <span>{{mediaStatus}}</span>
+        </div>
+      </div>
+
+      <h4>{{errorMessage}}</h4>
+    </div>
+  </div>
+
+</body>
+</html>

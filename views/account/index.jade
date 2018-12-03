@@ -1,0 +1,51 @@
+extends ../layout/default
+
+block head
+  title My Account | #{projectTitle}
+
+block neck
+
+block feet
+  script(src='#{cdnServer}/views/account/index.js#{cacheBreaker}')
+  script(src='#{cdnServer}/views/post/user.js#{cacheBreaker}')
+
+
+block heading
+  include ../layout/offcanvas
+
+block body
+  include ../layout/navbar
+
+  div.container(style='padding-top: 120px;')
+    .row
+      .col-md-12
+        div.page-header
+          h1 我的帳戶
+    .row
+      .col-md-4
+        p.lead
+          a.btn.btn-large.btn-block.btn-primary.fa.fui-info(href='/post/create') &nbsp;分享照片
+        p.lead
+          a.btn.btn-large.btn-block.btn-primary.fa.fui-exit(href='/logout/') &nbsp;會員登出
+        div.well
+          p 可連結社群帳戶，會員登入更加便利。
+          a.btn.btn-large.btn-block.btn-primary.fa.fui-user(href='/account/settings/') &nbsp;帳戶設定
+      span.col-md-8(style='padding-left:30px;')
+        p 我分享的照片
+        #posts
+
+  script(type='text/template', id='tmpl-post-item')
+    <% _.each(posts, function(post) { %>
+    div.thumbnail
+      div.row
+        div.col-md-8.col-sm-12.col-xs-12
+          p.subject
+            a(href!='/post/<%= post.subject %>', target='_blank') <%= post.subject %>
+        div.col-md-4.col-sm-12.col-xs-12
+          a.btn.btn-block.btn-large.btn-primary.fa.fa-edit.btn-modify(href!='/mentor/post/create/<%= post.id %>', style='padding: 3px; margin-bottom: 3px;') &nbsp;修改
+          <% if (post.isActive === false) { %>
+          a.btn.btn-block.btn-large.fa.fa-eye-slash.btn-publish-post(data-toggle='publish', data-post-subject!='<%= post.subject %>', style='padding: 3px;')  Publish (將文章公開)
+          <% } else { %>
+          a.btn.btn-block.btn-large.fa.fa-eye-slash.btn-publish-post(data-toggle='unpublish', data-post-subject!='<%= post.subject %>', style='padding: 3px;')  Unpublish (將文章下線)
+          <% } %>
+    <% }); %>

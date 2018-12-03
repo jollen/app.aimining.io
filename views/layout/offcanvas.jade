@@ -1,0 +1,27 @@
+header.header-10
+  .container
+    .navbar.col-sm-12(role='navigation')
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='offcanvas', data-target='#myNavmenu', data-canvas='body')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      .collapse.navbar-collapse.pull-right
+        ul.nav
+          li: a(href='/') 回首頁
+          li
+            a(href='#new-product1') 楓樹湖龍眼乾
+          li
+            a(href='#new-product2') 電波良茶
+          li
+            a(href='#') 關於我們
+          if user.username
+            li: a(href='/account', id='user', data-username='#{user.username}')
+              span.fa.fa-user Hi, #{user.username}
+            li: a(href='/logout')
+              span.fa.fa-user 登出
+          else
+            li: a(href='/login')
+              span.fa.fa-user &nbsp;登入
+            li: a(href='/signup')
+              span.fa.fa-user &nbsp;加入會員

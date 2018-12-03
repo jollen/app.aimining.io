@@ -1,0 +1,26 @@
+// There is a path to Startup framework
+@startup-basePath: "../../../";
+
+@import '@{startup-basePath}flat-ui/less/variables.less';
+@import '@{startup-basePath}flat-ui/less/mixins.less';
+
+@import '@{startup-basePath}common-files/less/mixins.less';
+@import '@{startup-basePath}common-files/less/common.less';
+@import '@{startup-basePath}common-files/less/navbar.less';
+@import '@{startup-basePath}common-files/less/helper.less';
+
+/* header */
+@import '@{startup-basePath}ui-kit/ui-kit-header/less/header-14.less';
+
+.header-14-sub {
+    padding-bottom:120px;
+    min-height: 980px;
+    .box-sizing(border-box);
+    @media (max-width: 480px) {
+        padding-bottom: 50px;
+    }
+}
+.header-14-sub .background {
+    background-image:url("../img/img-1.jpg");
+    .opacity(100);
+}

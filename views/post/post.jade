@@ -1,0 +1,48 @@
+extends ../layout/default_post_content
+
+block fb_meta
+  meta(property='og:site_name', content='MokoVersity 開放創新學院')
+  meta(property='og:title', content='#{post.subject}')
+  meta(property='og:url', content='#{currentURL("")}')
+  meta(property='og:image', content='http://cdn.mokoversity.com/images/logo/mokoversity.png')
+  meta(property='article:published_time', content='#{post.date}')
+
+block head
+  title #{post.subject} | #{projectTitle}
+
+block neck
+  link(href='#{cdnServer}/css/course-ui.css#{cacheBreaker}', rel='stylesheet')
+  link(href='#{cdnServer}/css/course-video.css#{cacheBreaker}', rel='stylesheet')
+
+block feet
+  script(src='#{cdnServer}/views/post/markdown_dom_parser.js#{cacheBreaker}')
+  script(src='#{cdnServer}/views/post/html2markdown.js#{cacheBreaker}')
+  script(src='#{cdnServer}/views/post/post.js#{cacheBreaker}')
+  script(src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52c42f932bb56eda')
+  script(src='#{cdnServer}/vendor/add-this/post.js#{cacheBreaker}')
+
+block body
+  script(type='text/plain', data-tag='markdown')
+    | #{post.content}
+
+  .container.wiki-content
+    if author
+      .row(style='position: fixed; background: #FFF; z-index: 999;')
+        .col-md-2
+        .col-md-10
+            button.btn.btn-default.btn-post-edit(href!='#')
+              span 編輯
+            button.btn.btn-default.btn-post-save.hide(href!='#')
+              span 儲存
+    .row(style='padding-bottom: 180px; padding-top: 30px;')
+      .col-md-2
+      .col-md-8.wiki-page(data-tag='id', data-post-id='#{post.id}')
+        img.img-circle.pull-right(src!='http://www.gravatar.com/avatar/#{post.emailHash}', width='64', height='64', style='margin-top: 20px;')
+        h1(data-tag='subject', data-post-subject!='#{post.subject}') #{post.subject}
+        p #{post.userCreated.name} -&nbsp;
+          span.wiki-date #{post.userCreated.time}
+        div.editable#post
+      .col-md-2
+
+  script(type='text/template', id='tmpl-post')
+    div(data-tag='content') <%= html %>

@@ -1,0 +1,9 @@
+node_modules/
+merged/
+npm-debug.log
+.DS_Store
+.idea
+examples/create-editonly*
+examples/*.min.js
+examples/redactor.*
+components/

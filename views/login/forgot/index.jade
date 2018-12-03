@@ -1,0 +1,41 @@
+extends ../../layout/default
+
+block head
+  title Forgot Your Password?
+
+block feet
+  script(src='/views/login/forgot/index.min.js?#{cacheBreaker}')
+
+block body
+  div.container
+    div.row
+      div.col-sm-6
+        div.page-header
+          h1 忘記密碼?
+        div#forgot
+
+  script(type='text/template', id='tmpl-forgot')
+    form
+      div.alerts
+        |<% _.each(errors, function(err) { %>
+        div.alert.alert-danger
+          button.close(type='button', data-dismiss='alert') &times;
+          |<%- err %>
+        |<% }); %>
+        |<% if (success) { %>
+        div.alert.alert-info
+          button.close(type='button', data-dismiss='alert') &times;
+          | 重設密碼的連結已傳送到該信箱。
+        |<% } %>
+      |<% if (!success) { %>
+      div.form-group(class!='<%- errfor.email ? "has-error" : "" %>')
+        label.control-label 輸入帳號的 Email:
+        input.form-control(type='text', name='email', value!='<%= email %>')
+        span.help-block <%- errfor.email %>
+      |<% } %>
+      div.form-group
+        |<% if (!success) { %>
+        button.btn.btn-primary.btn-forgot(type='button') 重設密碼
+        |<% } %>
+        |&nbsp;
+        a.btn.btn-link(href='/login') 重新登入

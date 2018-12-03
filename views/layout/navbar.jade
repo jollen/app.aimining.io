@@ -1,0 +1,28 @@
+header.header-10
+  .container
+    .navbar.col-sm-12(role='navigation')
+      .navbar-header
+        .navbar-fixed-top.navbar-toggle
+          img#menu-toggle(src='#{cdnServer}/images/icons/icon-menu-black@48.png')
+        a.navbar-brand(href='/')
+          span
+            img(src='https://aimining.io/static/color_symbol_transparent.png')
+      .collapse.navbar-collapse.pull-right
+        ul.nav
+          li: a(href='/') 回首頁
+          li
+            a(href='/eth.html') 私人礦池
+          li
+            a(href='/ipfs-miner.html') IPFS 存儲與挖礦方案
+          li
+            a(href='/about.html') 關於我們
+          if user.username
+            li: a(href='/account', id='user', data-username='#{user.username}')
+              span.fa.fa-user Hi, #{user.username}
+            li: a(href='/logout')
+              span.fa.fa-user 登出
+          else
+            li: a(href='/login')
+              span.fa.fa-user &nbsp;登入
+            li: a(href='/signup')
+              span.fa.fa-user &nbsp;加入會員

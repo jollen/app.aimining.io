@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    block head
+    include meta
+    include css
+    block neck
+
+  body(id='top')
+    div.page-wrapper
+        block heading
+        block body
+
+    include js
+    block feet

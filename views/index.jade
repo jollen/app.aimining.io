@@ -1,0 +1,180 @@
+extends ./layout/default
+
+block fb_meta
+  meta(property='og:site_name', content='AI Mining')
+  meta(property='og:title', content='AI Mining')
+  meta(property='og:url', content='#{currentURL("")}')
+  meta(property='og:image', content='')
+  meta(property='article:published_time', content='')
+
+block head
+  title #{projectTitle} | #{projectName}
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+block neck
+
+block feet
+  script(src='#{cdnServer}/js/script.js')
+
+block heading
+  include layout/navbar
+  section.header-10-sub.v-center
+    .background.blur
+    div
+      .container
+        .row
+          .col-sm-6.col-sm-offset-3
+            .hero-unit.bordered
+              p
+                | AI Mining
+            p.wide-text.text-warning
+              | 礦機 / 私人礦池 / 雲端算力
+              br
+              | 區塊鏈整合開發 / 企業幣解決方案
+
+block body
+  section.content-19.blog-unit
+      .container
+          .row
+            .col-sm-7
+              .quote
+                .quote-text
+                  | 如何保護你的資訊？可以找台碎紙機，把你的文件切碎後撒在海裡，需要時再從海裡打撈碎片重組即可。這麼神奇的功能，就是 Flowchain+IPFS 保護資訊的方法。
+            .col-sm-3.col-sm-offset-1
+              .quote
+                .quote-author
+                  .quote-author-name
+                    | 智鏈不正經技術講堂
+                .quote-text
+                  | 簡單易懂的 Flowchain 區塊鏈技術
+
+  section#lastBlock-wrapper.lastBlock
+    div#new-product1
+      ul#lastBlockCtrl.hide
+          li.menuicon
+            span.icn_menu(aria-hidden='true')
+          li
+            a(data-slide-index='0') Showcase
+          li
+            a(data-slide-index='1') Images
+          li
+            a(data-slide-index='2') Documentation
+          li
+            a(data-slide-index='3') Information
+      ul#lastSlider
+        li
+          section.showcase
+            .holder
+              .bg
+                .pic1.visible
+              .cont
+                h1 頂極碎紙機工藝
+                p
+                  | 區塊鏈魔法師智鏈科技，積極與 Flowchain 基金會合作，打造 Flowchain+IPFS 軟體解決方案，並與 Proxima Times 主板完美整合，創造出 Distributed Storage Network 的頂極工藝，讓重要檔案上鏈保存且永久不遺失
+                ul
+                  li
+                    a(href='/product/2', target='_blank')
+                      img(src='https://aimining.io/static/gallery/pxt-flowchain-miner-02.png', alt='')
+                      b
+                        strong 想複雜一點
+                        span.svgIcon
+                          svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', width='16', height='16', viewbox='0 0 32 32')
+                            path(d='M30 0h-16c-1.105 0-2 0.894-2 2v16c0 1.105 0.895 2 2 2h16c1.105 0 2-0.895 2-2v-16c0-1.105-0.895-2-2-2zM28 16h-12v-12h12v12zM16 28h-12v-12h4v-4h-6c-1.105 0-2 0.895-2 2v16c0 1.105 0.894 2 2 2h16c1.105 0 2-0.895 2-2v-6h-4v4z', fill='#eaeaea')
+                      span
+                        | 價格：NT$---
+                        br
+                        | 單購主機板自行組裝
+                  li
+                    a(href='/product/3', target='_blank')
+                      img(src='https://aimining.io/static/gallery/pxt-flowchain-miner-04.jpg', alt='')
+                      b
+                        strong 想簡單生活
+                        span.svgIcon
+                          svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', width='16', height='16', viewbox='0 0 32 32')
+                            path(d='M30 0h-16c-1.105 0-2 0.894-2 2v16c0 1.105 0.895 2 2 2h16c1.105 0 2-0.895 2-2v-16c0-1.105-0.895-2-2-2zM28 16h-12v-12h12v12zM16 28h-12v-12h4v-4h-6c-1.105 0-2 0.895-2 2v16c0 1.105 0.894 2 2 2h16c1.105 0 2-0.895 2-2v-6h-4v4z', fill='#eaeaea')
+                      span
+                        | 價格：NT$---
+                        br
+                        | 超值全配插電即用
+
+  section.content-19.blog-unit
+      .container
+          .row
+            .col-sm-7
+              .quote
+                .quote-text
+                  | 每個人都該擁有礦池。Flowchain Pool 是礦池的架設軟體，讓你擁有專屬的 Cryptocurrency 挖礦礦池，讓你節省大型礦池的挖礦手續費，還能優化網路頻寬，降低無效挖礦的機率。
+            .col-sm-3.col-sm-offset-1
+              .quote
+                .quote-author
+                  .quote-author-name
+                    | 智鏈正經技術講堂
+                .quote-text
+                  | 簡單易懂的 Flowchain 區塊鏈技術
+
+  section#lastBlock-wrapper.lastBlock
+    div#new-product2
+      ul#lastBlockCtrl.hide
+          li.menuicon
+            span.icn_menu(aria-hidden='true')
+          li
+            a(data-slide-index='0') Showcase
+          li
+            a(data-slide-index='1') Images
+          li
+            a(data-slide-index='2') Documentation
+          li
+            a(data-slide-index='3') Information
+      ul#lastSlider
+        li
+          section.showcase
+            .holder
+              .bg
+                .pic2.visible
+              .cont
+                h1 好好挖礦
+                p
+                  | Flowchain Pool 是多功能、安全的密碼貨幣礦池系統，支持 FlowchainCoin (FLC) 挖礦，也為 IPFS/Filecoin (FIL) 量身打造高性效礦池
+                ul
+                  li
+                    a(href='/eth.html', target='_blank')
+                      img(src='/images/holder/flowpool-1.png', alt='')
+                      b
+                        strong 人工智能挖礦助理
+                        span.svgIcon
+                          svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', width='16', height='16', viewbox='0 0 32 32')
+                            path(d='M30 0h-16c-1.105 0-2 0.894-2 2v16c0 1.105 0.895 2 2 2h16c1.105 0 2-0.895 2-2v-16c0-1.105-0.895-2-2-2zM28 16h-12v-12h12v12zM16 28h-12v-12h4v-4h-6c-1.105 0-2 0.895-2 2v16c0 1.105 0.894 2 2 2h16c1.105 0 2-0.895 2-2v-6h-4v4z', fill='#eaeaea')
+                      span
+                        | 用 AI 提升出塊機率
+                  li
+                    a(href='/eth.html', target='_blank')
+                      img(src='/images/holder/flowpool-2.png', alt='')
+                      b
+                        strong 即時統計
+                        span.svgIcon
+                          svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', width='16', height='16', viewbox='0 0 32 32')
+                            path(d='M30 0h-16c-1.105 0-2 0.894-2 2v16c0 1.105 0.895 2 2 2h16c1.105 0 2-0.895 2-2v-16c0-1.105-0.895-2-2-2zM28 16h-12v-12h12v12zM16 28h-12v-12h4v-4h-6c-1.105 0-2 0.895-2 2v16c0 1.105 0.894 2 2 2h16c1.105 0 2-0.895 2-2v-6h-4v4z', fill='#eaeaea')
+                      span
+                        | 零秒差掌握挖礦狀態
+
+
+  section.content-34
+      #content-34-pt-main.page-transitions.pt-perspective
+          .pt-page.pt-page-current.slide-2
+            section
+              .container
+                .row
+                  .col-sm-6
+                    h2 安全、綠能、共享算力
+                    p.lead
+                      | Flowchain 正在打造更安全的 IoT 區塊鏈，並以共享儲存與共享算力池技術，降低算力挖礦的能源消費，開發綠能區塊鏈密碼技術，
+                      a(href='/eth.html', target='_blank')
+                        b
+                          strong 更多 Flowchain 技術
+                          span.svgIcon
+                            svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', width='16', height='16', viewbox='0 0 32 32')
+                              path(d='M30 0h-16c-1.105 0-2 0.894-2 2v16c0 1.105 0.895 2 2 2h16c1.105 0 2-0.895 2-2v-16c0-1.105-0.895-2-2-2zM28 16h-12v-12h12v12zM16 28h-12v-12h4v-4h-6c-1.105 0-2 0.895-2 2v16c0 1.105 0.894 2 2 2h16c1.105 0 2-0.895 2-2v-6h-4v4z', fill='#eaeaea')                      
+                .row
+                  .col-sm-3.box-1
+                    h3 為技術而存在
+                    p AI Mining 是 Flowchain Foundation 成員，並由 Flowchain Foundation 贊助研發 Flowchain OS 整體解決方案；AI Mining 正在打造 AI+IoT（AIoT）區塊鏈產品，包含：Flowchain/IPFS 商用存儲與礦機軟體方案、商用礦池、Hyperledger 導入與開發維護等

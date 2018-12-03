@@ -1,0 +1,5 @@
+NameError: .transition is undefined in E:\Projects\Crumbs\markup\designmodo\startup\common-files\less\startup-kit_header.less on line 7, column 8:
+6 
+7 .dockbar {
+8   .transition(z-index 4s ease 0s);
+

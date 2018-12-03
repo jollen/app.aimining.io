@@ -1,0 +1,135 @@
+doctype html
+html
+  head
+    block head
+      title #{title} | #{projectTitle}
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext', rel='stylesheet')
+    link(href='#{cdnServer}/vendor/bootstrap/dist/css/bootstrap.css', rel='stylesheet')
+    link(href='#{cdnServer}/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='#{cdnServer}/css/flat-ui.css#{cacheBreaker}', rel='stylesheet')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    block neck
+
+  body
+    div.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-header
+        a.navbar-brand(href='/')
+          span
+            img(src='#{cdnServer}/images/moko365/mokoversity-logo_white.png', width='32')
+            | &nbsp;mokoversity
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      div.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.dropdown
+            a.dropdown-toggle(href='/admin/categories', data-toggle='dropdown') 課程管理
+              span.caret
+            ul.dropdown-menu
+              li: a(href='/admin/categories') Categories 目錄
+              li: a(href='/admin/lessons') Lessons 課程
+              li: a(href='/admin/programs') Programs 影片 & 文章
+          li.dropdown
+            a.dropdown-toggle(href='/admin/users', data-toggle='dropdown') 使用者管理
+              span.caret
+            ul.dropdown-menu
+                li: a(href='/admin/users') Users
+                li: a(href='/admin/accounts') Accounts
+          li.dropdown
+            a.dropdown-toggle(href='/admin/administrators', data-toggle='dropdown') Admin 管理
+              span.caret
+            ul.dropdown-menu
+                li: a(href='/admin/administrators') Administrators
+                li: a(href='/admin/admin-groups') Admin Groups
+                li: a(href='/admin/statuses') Statuses
+                li: a(href='/admin/contacts') Contacts
+        form.navbar-search.form-search.navbar-form.navbar-left(role='search')
+          #_search
+        a.brand(href='http://www.moko365.com', target='_blank')
+          i
+            img(src='#{cdnServer}/images/moko365/moko365-logo.png', width='150')
+
+    div.page(style='margin-top: 10px;')
+      div.container
+        block body
+
+    div.ajax-spinner
+      img(src='/media/ajax-pulse.gif')
+
+    #hintModal.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='hintModalLabel', aria-hidden='true')
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+        h3#hintModalLabel Keyboard Shortcut
+      .modal-body
+        div.row.shortcut
+          div.col-md-4
+            div.row.keys
+              span.key i
+              span.desc Go to admin page
+            div.row.keys
+              span.key c
+              span.desc Go to Category page
+            div.row.keys
+              span.key l
+              span.desc Go to Lesson page
+            div.row.keys
+              span.key p
+              span.desc Go to Program page
+            div.row.keys
+              span.key u
+              span.desc Go to User page
+            div.row.keys
+              span.key a
+              span.desc Go to Account page
+            div.row.keys
+              span.key j
+              span.desc Previous page (if available)
+            div.row.keys
+              span.key k
+              span.desc Next page (if available)
+            div.row.keys
+              span.key s
+              span.desc Focus to Search field
+            div.row.keys
+              span.key ?
+              span.desc Show this hint
+
+    script(type='text/template', id='tmpl-_search')
+      div.dropdown
+        input.form-control(name='_search', type='text', placeholder='search', tab-index='1')
+        ul#_search-results-rows.dropdown-menu
+    script(type='text/template', id='tmpl-_search-results-row')
+      |<% if (type && type == 'header') { %>
+      |<%= name %>
+      |<% } else { %>
+      a(href!='<%= url %>') <%= name %>
+      |<% } %>
+    script(type='text/template', id='tmpl-_search-results-empty-row')
+      li.dropdown-header no docs matched
+
+    script(src='#{cdnServer}/vendor/jquery/jquery.js')
+    script(src='#{cdnServer}/vendor/bootstrap/dist/js/bootstrap.js')
+    script(src='#{cdnServer}/js/jquery.ui.touch-punch.min.js')
+    script(src='#{cdnServer}/js/flatui-checkbox.js')
+    script(src='#{cdnServer}/js/flatui-radio.js')
+    script(src='#{cdnServer}/js/notify.js')
+    script(src='#{cdnServer}/js/notify-bootstrap.js')
+    script(src='#{cdnServer}/js/jquery.tagsinput.js')
+    script(src='#{cdnServer}/js/jquery.placeholder.js')
+    script(src='#{cdnServer}/js/jquery.stacktable.js')
+    script(src='#{cdnServer}/vendor/underscore/underscore-min.js')
+    script(src='#{cdnServer}/vendor/backbone/backbone-min.js')
+    script(src='#{cdnServer}/vendor/momentjs/min/moment.min.js')
+    script(src='#{cdnServer}/js/main_default.js')
+    script(src='#{cdnServer}/js/google-analytics.js')
+
+    script(src='/layouts/core.js#{cacheBreaker}')
+    script(src='/layouts/admin.js#{cacheBreaker}')
+
+    script(src='#{cdnServer}/js/flatui-checkbox.js')
+    script(src='#{cdnServer}/js/flatui-radio.js')
+
+    block feet

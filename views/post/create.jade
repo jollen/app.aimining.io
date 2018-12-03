@@ -1,0 +1,68 @@
+extends ../layout/default
+
+block head
+  title 發表文章 | #{projectTitle}
+
+block neck
+
+block feet
+  script(src='/views/post/index.js#{cacheBreaker}')
+
+block heading
+  include ../layout/navbar
+  section.header-10-sub.v-center
+    .background
+    div
+      .container
+        .row.hide
+          .col-sm-6.col-sm-offset-3
+            .hero-unit.bordered
+              p  
+                | 台灣優質農產品
+                br
+                | FORMOSA BEST
+            p.wide-text.text-warning
+              | 本期精選：阿里山良茶、楓樹湖龍眼乾
+        .row
+          .col-sm-6.col-sm-offset-3
+            #post
+
+  script(type='text/template', id='tmpl-post')
+    .clearfix
+      form
+        div.alerts
+          |<% _.each(errors, function(err) { %>
+          div.alert.alert-danger
+            |<%= err %>
+          |<% }); %>
+          |<% if (success) { %>
+          div.alert.alert-info
+            | 您分享的照片已儲存成功，謝謝。
+            a(href='/') 回首頁
+          |<% } %>
+        |<% if (!success) { %>
+        if id !== ''
+          h3 <%= subject %>
+        else
+          div#step2(style='text-align: left;')
+            input(type='hidden', name='id', value='#{id}')
+            .form-group(class!='<%= errfor.subject ? "has-error" : "" %>')
+              label.control-label 標題:
+              input.form-control(type='text', name='subject', placeholder='為您的照片寫一個好標題', value!='<%= subject %>')
+            .form-group(class!='<%= errfor.content ? "has-error" : "" %>')
+              label.control-label 照片說明:
+              textarea.form-control(name='content', rows='7', placeholder='用文字活化照片中的好山好水') <%= content %>
+            .form-group
+              button.btn.btn-info(data-toggle='save-post') 儲存
+          form-group.fileinput.fileinput-new#step1.hide(data-provides='fileinput')
+            .fileinput-preview.thumbnail.hide(data-trigger='fileinput', style='width: 300px; height: 200px;')
+            div
+              .progress.hide
+                .progress-bar(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='width: 0%;')
+                  | 0%
+              button.btn.btn-info.btn-file
+                span.fileinput-new 選取一張您想分享的照片
+                span.fileinput-exists 重選
+                input(type='file', name='filename', id='photo-upload')
+              button.btn.btn-info.fileinput-exists(data-toggle='upload-photo', data-nickname='guest') 上傳照片
+        |<% } %>
